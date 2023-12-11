@@ -1,30 +1,12 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import Home from './Components/Home';
 import RepoList from './Components/RepoList';
-import SearchForm from './Components/SearchForm';
-import { ChakraProvider } from '@chakra-ui/react'
-import { Box, Text, Image } from '@chakra-ui/react'
+import { Box} from '@chakra-ui/react'
 import Navbar from './Components/Navbar';
 
 const App = () => {
   const [repos, setRepos] = useState([]);
-
-  // const fetchRepos = async (username, page = 1, perPage = 10) => {
-  //   try {
-  //     const response = await axios.get(`https://api.github.com/users/${username}/repos`, {
-  //       params: {
-  //         page,
-  //         per_page: perPage,
-  //       },
-  //     });
-  //     setRepos(response.data);
-  //   } catch (error) {
-  //     console.error('Error fetching repositories:', error.message);
-  //     setRepos([]);
-  //   }
-  // };
 
   const fetchRepos = async (username, page = 1, perPage = 10) => {
     try {
@@ -33,9 +15,6 @@ const App = () => {
           page,
           per_page: perPage,
         },
-        headers: {
-          Authorization: `Bearer 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`,
-        },
       });
       setRepos(response.data);
     } catch (error) {
@@ -43,6 +22,24 @@ const App = () => {
       setRepos([]);
     }
   };
+
+  // const fetchRepos = async (username, page = 1, perPage = 10) => {
+  //   try {
+  //     const response = await axios.get(`https://api.github.com/users/${username}/repos`, {
+  //       params: {
+  //         page,
+  //         per_page: perPage,
+  //       },
+  //       headers: {
+  //         Authorization: `Bearer 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`,
+  //       },
+  //     });
+  //     setRepos(response.data);
+  //   } catch (error) {
+  //     console.error('Error fetching repositories:', error.message);
+  //     setRepos([]);
+  //   }
+  // };
 
   return (
     <>

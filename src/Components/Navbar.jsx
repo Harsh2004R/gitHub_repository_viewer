@@ -65,7 +65,6 @@ const Navbar = ({ onSubmit }) => {
       </Box>
       <Box
         py="2"
-        boxShadow="sm"
         border="0 solid #e5e7eb"
         position="fixed"
         top="0"
