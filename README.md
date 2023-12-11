@@ -8,8 +8,8 @@ Explore GitHub repositories with ease using the GitHub Repository Viewer, a proj
 
 ## Live Demo
 
-Check out the live demo: [GitHub Repository Viewer](https://git-hub-repository-viewer-7yvulw3f2-harsh2004r.vercel.app/)
-
+<!-- Check out the live demo: [GitHub Repository Viewer](https://git-hub-repository-viewer-7yvulw3f2-harsh2004r.vercel.app/) -->
+Check out the live demo: from side bar.
 ## Features
 
 - **Vite + React**: Leverage the power of Vite for a fast and efficient development experience with React.

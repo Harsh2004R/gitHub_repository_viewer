@@ -8,30 +8,12 @@ import Navbar from './Components/Navbar';
 const App = () => {
   const [repos, setRepos] = useState([]);
 
-  const fetchRepos = async (username, page = 1, perPage = 10) => {
-    try {
-      const response = await axios.get(`https://api.github.com/users/${username}/repos`, {
-        params: {
-          page,
-          per_page: perPage,
-        },
-      });
-      setRepos(response.data);
-    } catch (error) {
-      console.error('Error fetching repositories:', error.message);
-      setRepos([]);
-    }
-  };
-
   // const fetchRepos = async (username, page = 1, perPage = 10) => {
   //   try {
   //     const response = await axios.get(`https://api.github.com/users/${username}/repos`, {
   //       params: {
   //         page,
   //         per_page: perPage,
-  //       },
-  //       headers: {
-  //         Authorization: `Bearer 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`,
   //       },
   //     });
   //     setRepos(response.data);
@@ -40,6 +22,25 @@ const App = () => {
   //     setRepos([]);
   //   }
   // };
+
+  const fetchRepos = async (username, page = 1, perPage = 10) => {
+    try {
+      const response = await axios.get(`https://api.github.com/users/${username}/repos`, {
+        params: {
+          page,
+          per_page: perPage,
+        },
+        headers: {
+          Authorization: `Bearer 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`,
+        },
+      });
+      
+      setRepos(response.data);
+    } catch (error) {
+      console.error('Error fetching repositories:', error.message);
+      setRepos([]);
+    }
+  };
 
   return (
     <>
