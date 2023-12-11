@@ -1,16 +1,30 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import SearchForm from "./Components/SearchForm";
-import RepoList from "./Components/RepoList";
-import { Box } from '@chakra-ui/react';
-import { BiGitRepoForked, BiStar } from 'react-icons/bi';
-import { FiGithub } from 'react-icons/fi';
-import { ChakraProvider } from '@chakra-ui/react'
-
 import Home from './Components/Home';
+import RepoList from './Components/RepoList';
+import SearchForm from './Components/SearchForm';
+import { ChakraProvider } from '@chakra-ui/react'
+import { Box, Text, Image } from '@chakra-ui/react'
+import Navbar from './Components/Navbar';
+
 const App = () => {
   const [repos, setRepos] = useState([]);
+
+  // const fetchRepos = async (username, page = 1, perPage = 10) => {
+  //   try {
+  //     const response = await axios.get(`https://api.github.com/users/${username}/repos`, {
+  //       params: {
+  //         page,
+  //         per_page: perPage,
+  //       },
+  //     });
+  //     setRepos(response.data);
+  //   } catch (error) {
+  //     console.error('Error fetching repositories:', error.message);
+  //     setRepos([]);
+  //   }
+  // };
 
   const fetchRepos = async (username, page = 1, perPage = 10) => {
     try {
@@ -18,6 +32,9 @@ const App = () => {
         params: {
           page,
           per_page: perPage,
+        },
+        headers: {
+          Authorization: `Bearer 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`,
         },
       });
       setRepos(response.data);
@@ -29,13 +46,40 @@ const App = () => {
 
   return (
     <>
-      <div>
-        <h1>GitHub Repository Viewer</h1>
-        <SearchForm onSubmit={fetchRepos} />
-        <RepoList repos={repos} />
-      </div>
-      
-      <ChakraProvider><Home /></ChakraProvider>
+
+
+
+
+
+
+
+      <Navbar onSubmit={fetchRepos} />
+      <Box 
+        w="100%" h="100vh" bg="linear-gradient(to top, #FFF9C4, #FF80AB, #2196F3 )" display={"flex"} justifyContent={"center"} alignItems={"center"}>
+        <Box borderRadius={"xl"} w={{ base: "98%", md: "90%" }} h="95%" bg="#FFFFFF" overflow="auto"
+          sx={{
+            // scrollbar here...
+            "&::-webkit-scrollbar": {
+              width: "6px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              borderRadius: "8px",
+            },
+            "&::-webkit-scrollbar-track": {
+              background: "linear-gradient(to top, #FFFF8D, #FF4500)",
+            },
+          }}
+        >
+
+          
+          <RepoList repos={repos} />
+
+
+
+
+        </Box>
+      </Box>
 
     </>
   );

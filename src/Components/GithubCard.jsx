@@ -1,23 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, HStack, Text, Divider } from '@chakra-ui/react'
-import { FiGithub, FiLink, FiEdit, FiMessageCircle } from 'react-icons/fi'
-
+import { FiGithub, FiLink, FiEdit, FiEye, FiPenTool, FiLayers } from 'react-icons/fi'
+import { BiGitRepoForked, BiStar, BiBullseye, BiPoll } from 'react-icons/bi';
 
 function GithubCard() {
+   
+
     return (
         <div>
-
+            
             <Box w="100%" h={{ base: "80vh", md: "60vh" }}
                 // border={"3px solid lime"}
                 display={"flex"} flexDirection={{ base: "column", md: "row" }} justifyContent={"center"} alignContent={"center"} alignItems={{ base: "center", md: "center" }}
             >
 
-                <Box 
-                
-                boxShadow="inset 0 0 20px 0px rgba(0, 0, 0, 0.5)"
-               
-                w={{ base: "95%", md: "40%" }} h="auto" p={4} borderRadius={"xl"}
-                    // border={"1px solid #9E9E9E"}
+                <Box
+
+                    boxShadow="inset 0 0 20px 0px rgba(0, 0, 0, 0.5)"
+
+                    w={{ base: "95%", md: "40%" }} h="auto" p={4} borderRadius={"xl"}
+                // border={"1px solid #9E9E9E"}
                 >
                     <Box
                         // border={"1px solid red"}
@@ -52,20 +54,36 @@ function GithubCard() {
 
                 </Box>
 
-                <Box  boxShadow="inset 0 0 20px 0px rgba(0, 0, 0, 0.5)" p={2} m={8} borderRadius={"xl"} w={{ base: "80%", md: "22%" }} h={{ base: "400px", md: "400px" }} 
+                <Box position={"relative"} boxShadow="inset 0 0 20px 0px rgba(0, 0, 0, 0.5)" p={2} m={8} borderRadius={"xl"} w={{ base: "80%", md: "22%" }} h={{ base: "400px", md: "400px" }}
                 // border={"1px solid #9E9E9E"}
                 >
+
                     <Box
+
                         border={"1px solid red"}
                         display={"flex"} flexDirection={"column"} justifyContent={"left"} alignContent={"center"} alignItems={{ base: "left", md: "left" }}
                         w="100%">
-                        <HStack alignItems={"center"}><FiEdit color='coral'/><Text fontWeight={"500"} fontSize={{ base: "11px", md: "14px" }}>Created at :{}</Text></HStack>
-                        <HStack ml="25px" alignItems={"center"}><Text fontWeight={"500"} fontSize={{ base: "11px", md: "14px" }}>Last update :{}</Text></HStack>
+                        <HStack mt="10px" alignItems={"center"}><FiPenTool color='#29B6F6' /><Text fontWeight={"500"} fontSize={{ base: "11px", md: "14px" }}>Created At :{ }</Text></HStack>
+                        <HStack mt="10px" alignItems={"center"}><FiEdit color='coral' /><Text fontWeight={"500"} fontSize={{ base: "11px", md: "14px" }}>Last Update :{ }</Text></HStack>
+                        <HStack mt="10px" alignItems={"center"}><BiBullseye color='#FF0000' /><Text fontWeight={"500"} fontSize={{ base: "11px", md: "14px" }}>Total Commits :{ }</Text></HStack>
+                        <HStack mt="10px" alignItems={"center"}><BiPoll /><Text fontWeight={"500"} fontSize={{ base: "11px", md: "14px" }}>Open Issues :{ }</Text></HStack>
+                        <HStack mt="10px" alignItems={"center"}><FiEye color='#4CAF50' /><Text fontWeight={"500"} fontSize={{ base: "11px", md: "14px" }}>Watcher's :{ }</Text></HStack>
+                        <HStack mt="10px" alignItems={"center"}><BiGitRepoForked color='#29B6F6' /><Text fontWeight={"500"} fontSize={{ base: "11px", md: "14px" }}>Fork's :{ }</Text></HStack>
+                        <HStack mt="10px" alignItems={"center"}><BiStar color='#AB47BC' /><Text fontWeight={"500"} fontSize={{ base: "11px", md: "14px" }}>Star Earned :{ }</Text></HStack>
+                        <HStack mt="10px" alignItems={"center"}><FiLayers color='#aea1ff' /><Text fontWeight={"500"} fontSize={{ base: "11px", md: "14px" }}>language's :{ }</Text></HStack>
+
+                    </Box>
+
+                    <Box bottom={"0"} m="auto" position="absolute" w="98%" h="10%" border={"1px solid yellow"}>
+                        <Text>
+
+                        </Text>
                     </Box>
 
 
 
                 </Box>
+
 
             </Box>
             <Divider />

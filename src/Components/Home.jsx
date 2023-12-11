@@ -1,10 +1,12 @@
 import React from 'react'
-import { FiGithub ,FiLink} from 'react-icons/fi';
-import { Box, Heading, Text, Image, HStack, Divider } from '@chakra-ui/react'
-import GithubCard from './GithubCard';
+import RepoList from './RepoList';
+import SearchForm from './SearchForm';
+import { Box,  Text, Image} from '@chakra-ui/react'
+
 function Home() {
     return (
         <>
+        <SearchForm onSubmit={fetchRepos} />
             <Box w="100%" h="100vh" bg="linear-gradient(to top, #FFF9C4, #FF80AB, #2196F3 )" display={"flex"} justifyContent={"center"} alignItems={"center"}>
                 <Box borderRadius={"xl"} w={{ base: "98%", md: "90%" }} h="95%" bg="#FFFFFF" overflow="auto"
                     sx={{
@@ -41,7 +43,7 @@ function Home() {
                     {/* <--------------------Headre part ends here -----------------------------------> */}
 
 
-                    <GithubCard/>
+                    <RepoList/>
 
 
 
